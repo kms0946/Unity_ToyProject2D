@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float maxSpeed;
+    public float jumpPower;
+    public float jumpCount;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
@@ -18,6 +20,12 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        //점프
+        if (Input.GetButtonDown("Jump")&& jumpCount<2){
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            jumpCount++;
+            anim.SetBool("isJumping", true);
+        }
         //이동 중지시 멈춤
         if (Input.GetButtonUp("Horizontal"))
         {
@@ -50,6 +58,22 @@ public class PlayerMove : MonoBehaviour
         else if(rigid.velocity.x < maxSpeed * (-1))//Left 스피드 제한
         {
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+        }
+
+        //땅에 닿은 것을 인식 by RayCast
+        //Debug.DrawRay(rigid.position, Vector3.down, new Color(1, 0, 0));
+        if (rigid.velocity.y < 0)
+        {
+            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
+            if (rayHit.collider != null)
+            {
+                if (rayHit.distance < 0.5f)
+                {
+                    anim.SetBool("isJumping", false);
+                    jumpCount = 0;
+                }
+
+            }
         }
     }
 }

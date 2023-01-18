@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 645742881}
   - component: {fileID: 645742880}
   - component: {fileID: 645742879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 924288833}
   - component: {fileID: 924288832}
   - component: {fileID: 924288834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 992029478}
   - component: {fileID: 992029477}
   - component: {fileID: 992029479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -962,6 +962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  jumpPower: 12
+  jumpCount: 0
 --- !u!1 &1166261743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1086,7 @@ GameObject:
   - component: {fileID: 1420256447}
   - component: {fileID: 1420256446}
   - component: {fileID: 1420256445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,7 +1197,7 @@ GameObject:
   - component: {fileID: 1456739099}
   - component: {fileID: 1456739098}
   - component: {fileID: 1456739100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,7 +1308,7 @@ GameObject:
   - component: {fileID: 1576097925}
   - component: {fileID: 1576097924}
   - component: {fileID: 1576097926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1419,7 @@ GameObject:
   - component: {fileID: 1870902959}
   - component: {fileID: 1870902958}
   - component: {fileID: 1870902957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1528,7 +1530,7 @@ GameObject:
   - component: {fileID: 1992599901}
   - component: {fileID: 1992599900}
   - component: {fileID: 1992599902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1639,7 +1641,7 @@ GameObject:
   - component: {fileID: 2017092756}
   - component: {fileID: 2017092755}
   - component: {fileID: 2017092757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: map2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
