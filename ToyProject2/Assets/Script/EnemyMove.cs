@@ -8,14 +8,14 @@ public class EnemyMove : MonoBehaviour
     public int nextMove;
     Animator anim;
     SpriteRenderer spriteRenderer;
-    public int jumpPower;
-    public int jumpCount;
+    CapsuleCollider2D capsuleCollider;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         Invoke("MonsterAI", 5);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
 
     }
@@ -33,17 +33,6 @@ public class EnemyMove : MonoBehaviour
         {
             Turn();
         }
-        //이벤트 발생
-        Vector2 jumpVec = new Vector2(rigid.position.x + nextMove, rigid.position.y);
-        RaycastHit2D rayHit2 = Physics2D.Raycast(jumpVec, Vector3.right, 2, LayerMask.GetMask("Player"));
-        Debug.DrawRay(jumpVec, Vector3.down, new Color(1, 0, 0));
-        if (rayHit2.collider != null && jumpCount < 1)
-        {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            jumpCount++;
-        }
-        else
-            jumpCount = 0;
 
 
     }
@@ -69,5 +58,18 @@ public class EnemyMove : MonoBehaviour
         spriteRenderer.flipX = nextMove == 1;
         CancelInvoke();
         Invoke("MonsterAI", 2);
+    }
+
+    public void OnDamaged()
+    {
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        spriteRenderer.flipY = true;
+        capsuleCollider.enabled = false;
+        rigid.AddForce(Vector2.up * 5,ForceMode2D.Impulse);
+        Invoke("DeActive", 3);
+    }
+    void DeActive()
+    {
+        gameObject.SetActive(false);
     }
 }
